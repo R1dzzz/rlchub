@@ -1,0 +1,39 @@
+<!-- news.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - RLCHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <!-- Same nav -->
+    </header>
+    <main>
+        <section class="news">
+            <h2>Game News</h2>
+            <input type="text" id="news-search" placeholder="Search news...">
+            <select id="news-category">
+                <option value="">All Categories</option>
+                <option value="esports">Esports</option>
+                <!-- Add more -->
+            </select>
+            <div id="news-list" class="card-grid"></div>
+        </section>
+    </main>
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/news.js"></script>
+    <script src="js/utils.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+            loadNews();
+            document.getElementById('news-search').addEventListener('input', loadNews);
+            document.getElementById('news-category').addEventListener('change', loadNews);
+        });
+    </script>
+</body>
+</html>

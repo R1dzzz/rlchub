@@ -1,0 +1,49 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">RLC</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li id="auth-link"><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Welcome to RLC GameHub</h1>
+            <p>Your ultimate platform for game recommendations, news, and more!</p>
+            <div id="ai-chat-container">
+                <h2>AI Game Assistant</h2>
+                <div id="chat-messages"></div>
+                <input type="text" id="chat-input" placeholder="Ask about games...">
+                <button id="chat-send">Send</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 rlcgamehub</p>
+    </footer>
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/ai-chat.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+            initAIChat();
+        });
+    </script>
+</body>
+</html>

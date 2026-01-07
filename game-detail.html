@@ -1,0 +1,40 @@
+<!-- game-detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Detail - GameHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <!-- Same nav -->
+    </header>
+    <main>
+        <section class="game-detail">
+            <h2 id="game-title"></h2>
+            <img id="game-image" src="" alt="Game Image">
+            <p id="game-description"></p>
+            <p id="game-specs"></p>
+            <p id="game-size"></p>
+            <p id="game-platform"></p>
+            <button id="download-btn">Download</button>
+            <p id="download-count"></p>
+        </section>
+    </main>
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/games.js"></script>
+    <script src="js/utils.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+            const urlParams = new URLSearchParams(window.location.search);
+            const gameId = urlParams.get('id');
+            loadGameDetail(gameId);
+            document.getElementById('download-btn').addEventListener('click', () => downloadGame(gameId));
+        });
+    </script>
+</body>
+</html>

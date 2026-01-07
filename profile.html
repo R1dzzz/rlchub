@@ -1,0 +1,36 @@
+<!-- profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - RLCHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <!-- Same nav as index -->
+    </header>
+    <main>
+        <section class="profile">
+            <h2>Your Profile</h2>
+            <img id="profile-photo" src="" alt="Profile Photo">
+            <p id="profile-username"></p>
+            <p id="profile-bio"></p>
+            <p id="profile-platform"></p>
+            <p id="profile-genre"></p>
+            <button id="logout-btn">Logout</button>
+        </section>
+    </main>
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/utils.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+            loadProfile();
+            document.getElementById('logout-btn').addEventListener('click', logout);
+        });
+    </script>
+</body>
+</html>

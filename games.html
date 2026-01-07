@@ -1,0 +1,53 @@
+<!-- games.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games - GameHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <!-- Same nav -->
+    </header>
+    <main>
+        <section class="games">
+            <h2>Game Recommendations</h2>
+            <div class="filters">
+                <select id="filter-platform">
+                    <option value="">All Platforms</option>
+                    <option value="android">Android</option>
+                    <option value="ios">iOS</option>
+                    <option value="pc">PC</option>
+                </select>
+                <select id="filter-genre">
+                    <option value="">All Genres</option>
+                    <option value="action">Action</option>
+                    <option value="adventure">Adventure</option>
+                    <!-- Add more -->
+                </select>
+                <select id="filter-popularity">
+                    <option value="">All</option>
+                    <option value="high">High Popularity</option>
+                </select>
+            </div>
+            <div id="games-list" class="card-grid"></div>
+        </section>
+    </main>
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/games.js"></script>
+    <script src="js/utils.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+            loadGames();
+            // Add filter listeners
+            document.querySelectorAll('.filters select').forEach(select => {
+                select.addEventListener('change', loadGames);
+            });
+        });
+    </script>
+</body>
+</html>
