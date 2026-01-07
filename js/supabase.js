@@ -1,7 +1,10 @@
-// js/supabase.js
-const SUPABASE_URL = 'https://jjikrqzsxppdqbstlnix.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_SXdQsr44kywQanmaeBN5lQ_Pr3n9Odw';
-const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY); // Assume Supabase client library is included via CDN or similar
+// supabase.js - JANGAN declare 'const supabase' lagi karena CDN udah bikin global Supabase
 
+const SUPABASE_URL = 'https://jjikrqzsxppdqbstlnix.supabase.co';  // Ganti dengan URL project Supabase kamu
+const SUPABASE_ANON_KEY = 'sb_publishable_SXdQsr44kywQanmaeBN5lQ_Pr3n9Odw';  // Ganti dengan anon public key kamu
 
-// For simplicity, assume you've included <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> in HTML if needed.
+// Pakai Supabase yang dari CDN, tapi create client-nya
+const supabaseClient = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// Biar kode lain (auth.js, games.js, dll) tetep bisa pake nama 'supabase', kita assign ulang
+window.supabase = supabaseClient;
