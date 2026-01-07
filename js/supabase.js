@@ -4,7 +4,8 @@ const SUPABASE_URL = 'https://jjikrqzsxppdqbstlnix.supabase.co';  // Ganti denga
 const SUPABASE_ANON_KEY = 'sb_publishable_SXdQsr44kywQanmaeBN5lQ_Pr3n9Odw';  // Ganti dengan anon public key kamu
 
 // Pakai Supabase yang dari CDN, tapi create client-nya
-const supabaseClient = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // Biar kode lain (auth.js, games.js, dll) tetep bisa pake nama 'supabase', kita assign ulang
 window.supabase = supabaseClient;
+
